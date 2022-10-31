@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+html { scroll-behavior: smooth;}
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    background-image: url(img/wallpaper_00038.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+nav {
+    position: sticky;
+    top: 0px;
+    background-color: black;
+    z-index: 10000;
+}
+
+nav ul {
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    text-align: center;
+}
+
+nav li {
+    display: table-cell;
+    min-width: 50px;
+}
+
+nav a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Courgette', cursive;
+    font-size: xx-large;
+}
+
+nav li.current {
+    border-bottom: 3px solid #92D050;
+}
+
+nav li:hover {
+    color: #E7DA66;
+    border-bottom: 3px solid #F0E475;
+}
+
+/*---------------Top---------------*/
+
+.top {
+    width: 100%;
+    height: 500px;
+    background-image: url(img/glass.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center 700px;
+    padding-top: 50px;
+}
+
+.top h1 {
+    writing-mode: vertical-rl;
+    margin: 0 auto;
+    font-family: serif;
+    font-size: 350%;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: auto;
+    height: 400px;
+}
+
+.top-menu{
+    background-image: url(img/wood-texture_00008.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+    
+}
+
+.slide img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;
+    opacity: 0;
+    animation: slideshow 24s linear infinite;
+    border-radius: 50%;
+}
+
+.slide img:nth-child(2) {
+    animation-delay: 8s;
+}
+
+.slide img:last-child {
+    animation-delay: 16s;
+}
+
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    28% {
+        opacity: 1
+    }
+
+    38% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*Menu
+---------------------------------------------------------------------------*/
+main h2 {
+    font-family:'Sacramento', cursive;
+    font-size: 400%;
+    text-align: center;
+	margin-bottom: 80px;
+    color: white;
+}
+
+.list img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+
+/*listボックスを囲むボックス*/
+.list-container {
+	display: flex;		/*flexボックスを使う指定*/
+	flex-wrap: wrap;	/*折り返す指定*/
+	padding: 0 5px;		/*上下、左右へのボックス内の余白*/
+}
+
+/*１個あたりのボックス*/
+.list {
+	width: 49%;				/*ボックスの幅*/
+	margin-right: 2%;		/*ボックス同士の左右間の余白。ボックスを２列並べるので、49%×2個=98%。100%との差の2%がここに入ります。*/
+	margin-bottom: 15px;	/*ボックス同士の上下間の余白*/
+	text-align: center;		/*テキストをセンタリング*/
+	font-size: 0.7rem;		/*文字サイズ。remの単位についてはテンプレート内の解説をお読み下さい。*/
+}
+
+/*2の倍数(偶数番目)のボックスへの追加指定*/
+.list:nth-of-type(2n) {
+	margin-right: 0;	/*右側のスペースをなくす設定*/
+}
+
+/*ボックス内のh4タグ。メニュータイトルを入力しているスペースです。*/
+.list h4 {
+	margin: 10px 0 0;		/*上、左右、下に空けるスペース*/
+	font-weight: normal;	/*hタグはデフォルトで太字なので、これを標準にする*/
+    color: white;
+}
+
+/*ボックス内のpタグ。価格を入力しているスペースです。*/
+.list p {
+	margin: 0!important;	/*「main p」のマージンをリセットする*/
+    color: white;
+}
+
+@media screen and (min-width:800px) {
+    .list {
+        width: 23%;				/*ボックスの幅*/
+        margin-right: 2.66%;	/*ボックス同士の左右間の余白。ボックスを4列並べるので、23%×4個=92%。100%との差の8%分をボックス間にある余白3個分で割った数字がここに入ります。※下の「.list:nth-of-type(2n)」の数字と合わせる。*/
+        margin-bottom: 25px;	/*ボックス同士の上下間の余白*/
+    }
+    
+    /*2の倍数(偶数番目)のボックスへの追加指定*/
+    .list:nth-of-type(2n) {
+        margin-right: 2.66%;	/*上のlistのmargin-rightと数字を合わせる。小さな端末向けで0になっているのを上書きしています。*/
+    }
+    
+    /*4の倍数のボックスへの追加指定*/
+    .list:nth-of-type(4n) {
+        margin-right: 0;	/*右側のスペースをなくす設定*/
+    }
+}
